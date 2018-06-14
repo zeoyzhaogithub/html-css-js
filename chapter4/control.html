@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>标签control属性的使用示例</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script type="text/javascript">
+    function setValue(){
+        var label = document.getElementById('label');
+        var textbox = label.control;
+        textbox.value = "213001";  
+    }
+    </script>
+</head>
+<body>
+    <h3>control标签的使用实例</h3>
+    <form>
+        <label id="label">
+            邮编：
+            <input id="txt_zip" maxlength="6">
+            <small>请输入六位数字</small>
+        </label>
+        <input type="button" value="设置默认值" onclick="setValue()"/>
+        <input type="text" placeholder="input me">
+    </form>
+    <br>
+    text:<input type="text" name="greeting" list="greetings">
+    <datalist id="greetings" style="display:none;">
+        <option value="Good morning">googd morning</option>
+        <option value="hello">hello</option>
+        <option value="googd afternoon">good afternoon</option>
+    </datalist>
+    <br>
+    <input type="text" name="greeting" autocomplete="on" list="greetings">
+    <form>
+        请输入指定格式的内容:
+        <input pattern="[0-9][A-Z]{3}" name=part>
+        <input type="submit">
+    </form>
+</body>
+</html>

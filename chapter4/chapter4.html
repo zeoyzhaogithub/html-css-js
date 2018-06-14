@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>表单及其他新增和改良的元素</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script type="text/javascript">
+    function Validate(){
+        var txtName = document.getElementById('txt_name');
+        var button = document.getElementById("btnValidate");
+        var form = document.getElementById("test2");
+        console.log(form);
+        if(txtName.value.trim() == ""){
+            console.log(txtName.value);
+            console.log(txtName.labels);
+            if(txtName.labels.length == 1){
+                console.log(2);
+                var label = document.createElement("label");
+                label.setAttribute("for", "txt_name");
+                form.insertBefore(label, button);
+                txtName.labels[1].innerHTML = "请输入姓名";
+                txtName.labels[1].setAttribute("style", "font-size:9px;color:red");
+                console.log(txtName.labels);
+            }
+        }else if(txtName.labels.length > 1){
+            form.removeChild(txtName.labels[1]);
+        }
+    }
+    </script>
+</head>
+<body>
+    <form id="testform" action="server.php">
+        <input type="submit" name="s1" value="v1" formaction="s1.jsp">s1<br/>
+        <input type="submit" name="s2" value="v2" formaction="s2.jsp">s2<br/>
+        <input type="submit" name="s3" value="v3" formaction="s3.jsp">s3<br/>
+        <input type="submit"><br/>
+        <input type="submit" name="s2" value="post" formmethod="POST"><br/>
+        <input type="submit" name="s3" value="get" formmethod="GET"><br/>
+        <h2>设置编码</h2>
+        <input type="text" name="name" value="test"><br>
+        文件: <input type="file" name="files">
+        <input type="submit" value="上传" formenctype="multipart/form-data"><br>
+    </form>
+    <h3>label标签的使用实例</h3>
+    <form id="test2">
+        <label id="label" for="txt_name">姓名：</label>
+        <input id="txt_name">
+        <input type="button" id="btnValidate" value="验证" onclick="Validate()"/>
+    </form>
+</body>
+</html>
