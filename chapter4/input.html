@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>表单及其他新增和改良的元素</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript">
+    
+    </script>
+</head>
+<body>
+    <h3>input 相关属性</h3>
+    <input name="email" type="email" value="40545340@qq.com"><br>
+    <input name="date1" type="date" value="2018-06-15"><br>
+    <input name="time1" type="time" value="15:54:00"><br>
+    <input name="time2" type="datetime-local" value="2018-06-15T15:56:45"><br>
+    <input name="month" type="month" value="2018-06"><br>
+    <input name="week" type="week" value="2018-W24"><br>
+    <input name="date" type="date" step="3"><br>
+    <form>
+        <input type="date" id="date">
+        <input type="button" value="click me!" 
+        onclick="alert(document.getElementById('date').valueAsNumber)"
+        >
+    </form>
+    <h3>number</h3>
+    请输入数字：<input name="number11" type="number" value="25" min="10" max="100" step="5"><br>
+    <form>
+        <input type="number" id="number1">
+        +
+        <input type="number" id="number2">
+        =
+        <input type="number" id="result" readonly>
+        <input type="button" value="sum" onclick="sum();">
+    </form>
+    <input name="range1" type="range" value="25" min="0" max="100" step="5"><br>
+    <input name="search1" type="search">
+    <br>
+    选择背景颜色：
+    <input type="color" 
+    onchange="document.body.style.backgroundColor = document.getElementById('currentColor').textContent = this.value;">
+    <span id="currentColor"></span>
+    <h1>简单表单示例</h1>
+    <form name="form1">
+        <label for="username">姓名</label>
+        <input name="username" id="username" type="text" required>
+        <br>
+        <label for="age">年龄</label>
+        <input name="age" id="age" type="number" min="0" max="100">
+        <br>
+        <label for="birthday">生日</label>
+        <input name="birthday" id="birthday" type="date"><br>
+        <label for="email">email</label>
+        <input name="email" id="email" type="email" required><br>
+        <label for="url">个人主页</label>
+        <input name="url" id="url" type="url"><br>
+        <label for="memo">个人简介</label>
+        <textarea name="memo" id="memo" required></textarea><br>
+        <input type="submit">
+    </form>
+    <form id="testform">
+        请输入一个数值:
+        <input id="range1" type="range" min="0" max="100" step="5" value="10" onchange="value_change()">
+        <output id="output1">10</output>
+    </form>
+    <h2>表单验证</h2>
+    <form method="POST">
+        <input name="text" type="text" required pattern="^\w.*$">
+        <input type="submit" value="submit">
+    </form>
+    <form id="testform" onsubmit="return check();" novalidate="true">
+        <label for="email1">email</label>
+        <input name="email1" id="email1" type="email"><br>
+        <input type="submit" value="submit">
+    </form>
+    <figure>
+        <figcaption>river</figcaption>
+        <img src="../img/river.jpg" alt="河流">
+        <img src="../img/river2.jpeg" alt="河流">
+    </figure>
+</body>
+</html>
+<script>
+    document.getElementById('date').valueAsDate = new Date();
+    function sum(){
+        var number1 = document.getElementById("number1").valueAsNumber;
+        var number2 = document.getElementById("number2").valueAsNumber;
+        document.getElementById("result").valueAsNumber = number1 + number2;
+    }
+    function value_change(){
+        var number = document.getElementById("range1").value;
+        console.log(number);
+        document.getElementById("output1").value = number;
+    }
+    function check(){
+        var email = document.getElementById("email1");
+        console.log(email.value);
+        if(email.value == ""){
+            alert("please input email");
+            return false;
+        }else if(!email.checkValidity()){
+            alert("please input current email");
+        }else{
+            alert("you input a current email");
+        }
+    }
+</script>

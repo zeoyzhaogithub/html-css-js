@@ -12,6 +12,12 @@
         var textbox = label.control;
         textbox.value = "213001";  
     }
+    function AlertSelectionDirection(){
+        var control = document.forms[2]["text"];
+        console.log(control);
+        var Direction = control.selectionDirection;
+        alert(Direction);
+    }
     </script>
 </head>
 <body>
@@ -39,5 +45,25 @@
         <input pattern="[0-9][A-Z]{3}" name=part>
         <input type="submit">
     </form>
+    <form>
+        <input type="test" name="text">
+        <input type="button" value="惦记我" onclick="AlertSelectionDirection()">
+    </form>
+    <br>
+    <input type="checkbox" indeterminate id="cd">indeterminate属性测试
+    <br>
+    <h3>image 类型的input元素使用示例</h3>
+    <form action="test.php" method="post">
+        姓名:<input type="text" name="name">
+        <input type="image" src="../img/s28319866.jpg" alt="编辑" width=23 height=23>
+    </form>
+    <form action="test.php" method="POST">
+        <textarea name="name" maxlength=100 rows=5 wrap="hard" cols=5></textarea>
+        <input type="submit" value="submit">
+    </form>
 </body>
 </html>
+<script>
+    var cb = document.getElementById("cb");
+    //cb.indeterminate = true;
+</script>
