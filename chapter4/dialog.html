@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>对话框使用示例</title>
+</head>
+<input type="button" value="打开对话框" 
+onclick="document.getElementById('dg').show();"><br>
+<dialog id="dg" style="width:80%;text-align:center;">
+    <h1>用户登录</h1>
+    <main>
+        <form>
+            <label for="txtName" value="用户名："/>
+            <input type="text" id="txtName"/><br>
+            <label for="txtPassword" value="密码："/>
+            <input type="password" id="txtPassword" /><br>
+            <input type="button" value="登录"/>
+            <input type="button" value="关闭" 
+            onclick="document.getElementById('dg').close();">
+        </form>
+    </main>
+</dialog>
+<h2>设置对话框返回值</h2>
+<input type="button" value="打开对话框111" 
+onclick="document.getElementById('dg1').show();
+document.getElementById('dg1').returnValue='对话框的值';">
+<dialog id="dg1" style="width:80%;text-align:center;">
+    <h1>用户登录</h1>
+    <main>
+        <form>
+            <label for="txtName" value="用户名："/>
+            <input type="text" id="txtName"/><br>
+            <label for="txtPassword" value="密码："/>
+            <input type="password" id="txtPassword" /><br>
+            <input type="button" value="登录"/>
+            <input type="button" value="关闭" 
+            onclick="document.getElementById('dg1').close();
+            alert(document.getElementById('dg1').returnValue);">
+        </form>
+    </main>
+</dialog>
+<h2>a标签的download属性</h2>
+<a href="../img/river.jpg" download="river.jpg">
+    <img src="../img/river.jpg">
+</a>
+<h2>改良的ol列表属性</h2>
+<ol start="5">
+    <li>list5</li>
+    <li>list6</li>
+    <li>list7</li>
+    <li>list8</li>
+    <li>list9</li>
+    <li>list10</li>
+    <li>list11</li>
+</ol>
+<h2>ol 列表的reversed属性</h2>
+<ol start=5 reversed>
+    <li>list5</li>
+    <li>list6</li>
+    <li>list7</li>
+    <li>list8</li>
+    <li>list9</li>
+    <li>list10</li>
+    <li>list11</li>
+</ol>
+<h2>dl 列表属性</h2>
+<article>
+    <h1>aritcle元素</h1>
+    <p>&lt;article&gt;元素表示文档、页面、应用或网站中的独立结构，
+        其意在成为可独立分配的或可复用的结构，如在发布中，它可能是论坛帖子、杂志或新闻文章、博客、用户提交的评论、交互式组件，或者其他独立的内容项目</p>
+    <aside>
+        <h2>术语解释</h2>
+        <dl>
+            <dt>
+                <dfn>article 元素介绍</dfn>
+            </dt>
+            <dd>
+                &lt;article&gt;元素表示文档、页面、应用或网站中的独立结构，
+            </dd>
+            <dt>
+                <dfn>blog介绍</dfn>
+            </dt>
+            <dd>
+                    成为可独立分配的或可复用的结构，如在发布中，它可能是论坛帖子
+            </dd>
+        </dl>
+    </aside>
+</article>
+<h2>cite 表示作品的标题</h2>
+<p>
+    我最喜欢的一本书<cite>国富论</cite>
+</p>
+<h2>iframe</h2>
+</html>
+<script>
+    // 判断浏览器是否支持iframe的sandbox属性
+    if("sandbox" in document.createElement("iframe")){
+        //支持
+    }else{
+        //不支持
+    }
+</script>

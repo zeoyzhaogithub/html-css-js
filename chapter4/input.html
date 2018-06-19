@@ -79,6 +79,46 @@
         <img src="../img/river.jpg" alt="河流">
         <img src="../img/river2.jpeg" alt="河流">
     </figure>
+    <h2>details元素使用</h2>
+    <details id="detail1" ontoggle="detail_ontoggle(this)" style="cursor:pointer">
+        <summary>花犯.郭希道送水仙索赋 --吴文英</summary>
+        <p id="p" style="visibility:hidden">
+            <p>
+                小娉婷清铅素靥，蜂黄暗偷晕，翠翘攲鬓。<br>
+                昨夜冷中庭，月下相认，睡浓更苦凄风紧。<br>
+                惊回心未稳，送晓色、一壶葱茜，才知花梦准。<br>
+            </p>
+            <p>
+                湘娥化作此幽芳，凌波路，古岸云沙遗恨。<br>
+                临砌影，寒香乱、冻梅藏韵。<br>
+                熏炉畔、旋移傍枕，还又见、玉人垂绀鬒。<br>
+                料唤赏、清华池馆，台杯须满饮。<br>
+            </p>
+        </p>
+    </details>
+    
+    <section>
+            <h2>progress元素使用示例</h2>
+            <p>
+                完成百分比：
+                <progress id="p2" max="100">
+                    <span>0</span>%
+                </progress>
+            </p>
+            <input type="button" onclick="button_onclick()" value="on click me">
+    </section>
+    <p>磁盘使用量：
+        <meter value="40" min="0" max="160">40/160</meter>
+        GB
+    </p>
+    <p>
+        你的得分是：
+        <meter value="91" min="0" max="100" low="40" high="90">
+            A+
+        </meter>
+    </p>
+    <meter>80%</meter>
+    <meter>3/4</meter>
 </body>
 </html>
 <script>
@@ -104,5 +144,29 @@
         }else{
             alert("you input a current email");
         }
+    }
+    function detail_ontoggle(detail){
+        var p = document.getElementById('p');
+        if(detail.open){
+            p.style.visibility = "visibility";
+        }else{
+            p.style.visibility = "hidden";
+        }
+    }
+
+    var progressBar = document.getElementById("p2");
+    function button_onclick(){
+        var progressBar = document.getElementById("p2");
+        progressBar.getElementsByTagName("span")[0].textContent = "0";
+        for(var i = 0; i <= 10; i++){
+            updateProgress(i);
+        }
+    }
+    function updateProgress(newValue){
+        var progressBar = document.getElementById("p2");
+        progressBar.value = newValue;
+        var a = progressBar.getElementsByTagName('span');
+        console.log(a);
+        a[0].textContent = newValue;
     }
 </script>
