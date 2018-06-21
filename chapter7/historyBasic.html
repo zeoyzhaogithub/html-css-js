@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>history API 使用示例</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+        #canvas{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            display: block;
+        }
+    </style>
+    <script type="text/javascript" src="historyBasic.js" charset="utf-8"></script>
+</head>
+<body>
+    <section>
+        <h1>用户信息一览表</h1>
+        <div id="infoTable">
+            <table id="datatable">
+                <tr>
+                    <th>用户id</th>
+                    <th>用户类型</th>
+                    <th>用户姓名</th>
+                    <th width="50px">&nbsp;</th>
+                </tr>
+                <tr>
+                    <td>用户id1</td>
+                    <td>普通用户</td>
+                    <td>用户姓名1</td>
+                    <td width="50px" onclick="onClickBtnDetail(this,'1')">详情</td>
+                </tr>
+                <tr>
+                    <td>用户id2</td>
+                    <td>管理员</td>
+                    <td>用户姓名2</td>
+                    <td width="50px" onclick="onClickBtnDetail(this, '2')">详情</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    <section id="sectionDetail"></section>
+    <h2>history api and canvas</h2>
+    <canvas id="canvas" width="400" height="300"></canvas>
+    <image id="image" src="../img/river.jpg" style="display:none;" />
+</body>
+</html>
