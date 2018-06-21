@@ -5,18 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>多媒体相关</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="canvasSupplement.js" charset="gb2312"></script>
+    <script type="text/javascript" src="videoBasic.js" charset="utf-8"></script>
 </head>
 <body onload="
-        draw0('canvas0');
-        draw1('canvas1'); 
-        draw2('canvas2');
+        videos0('videos0');
+        videos1('videos1');
+        videos2('videos2');
     ">
-    <h2>canvas元素使用示例-保存文件</h2>
-    <canvas id="canvas0" width="500" height="400"></canvas>
-    <h2>canvas元素使用示例-绘制动画</h2>
-    <canvas id="canvas1" width="450" height="100"></canvas>
-    <h2>canvas元素使用示例-循环显示组合效果</h2>
-    <canvas id="canvas2" width="450" height="100"></canvas>
+    <h2>audio元素使用示例</h2>
+    <audio id="videos0" src="../video/此处长安.mp3" controls="controls">你的浏览器不支持audio</audio>
+    <h2>读取网络状态</h2>
+    <audio id="videos1" src="../video/此处长安.mp3" controls="controls">你的浏览器不支持audio</audio>
+    <h2>媒体播放</h2>
+    <audio id="videos2" src="../video/银临-棠梨煎雪.mp3" controls="controls">
+        你的浏览器不支持audio
+    </audio>
+    <br>
+    <button onclick="play()">播放</button>
+    <button onclick="pause()">暂停</button>
+    <br>
+    <h2>事件捕获</h2>
+    
+    <video id="videos3" src="../video/银临-棠梨煎雪.mp3" width="400" height="300" autoplay loop="loop" controls="controls">
+    </video>
+    <video id="videos3" width="400" height="300" autoplay loop="loop"></video>
+    <br>
+    视频地址：
+    <input type="text" id="videoUrl" />
+    <input id="playButton" type="button" onclick="playOrPauseVideo()" value="播放" />
+    <span id="time"></span>
 </body>
 </html>
